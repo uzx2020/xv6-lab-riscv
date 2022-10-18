@@ -21,7 +21,8 @@ int main()
         int p2[2];
         pipe(p2);
         read(p1[READ], &prime, sizeof(prime));
-        printf("pid:%d start, prime: %d\n", getpid(), prime);
+        // printf("pid:%d start, prime: %d\n", getpid(), prime);
+        printf("prime %d\n", prime);
         if (read(p1[READ], &n, sizeof(n)) && n) {
             if (fork() == 0) {
                 close(p1[READ]);
@@ -46,7 +47,7 @@ int main()
         break;
     }
 
-    printf("pid:%d end\n", getpid());
+    // printf("pid:%d end\n", getpid());
     wait(0);
     exit(0);
 }
